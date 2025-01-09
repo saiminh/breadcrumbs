@@ -1,0 +1,28 @@
+.breadcrumbs {
+  --breadcrumb-spacing: .33rem;
+  --breadcrumb-font-size: clamp(12px, 3.666vw, 18px);
+  font-size: var(--breadcrumb-font-size);
+  display: flex;
+  gap: var(--breadcrumb-spacing);
+  white-space: nowrap;
+  width: calc(100% + 1rem);
+  overflow-x: auto;
+  position: relative;
+  mask-image: linear-gradient(to right, black, black calc(100% - 2rem), transparent);
+
+  & > a {
+    text-decoration: none;
+
+    &:not(:last-child):after {
+      content: '>';
+      pointer-events: none;
+      margin-left: var(--breadcrumb-spacing);
+    }
+  }
+}
+@media (min-width: 600px) {
+  .breadcrumbs {
+    --breadcrumb-spacing: .5rem;
+    --breadcrumb-font-size: 1rem;
+  }
+}
